@@ -5,10 +5,10 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 build_dir = Path(__file__).parent.absolute() / "frontend"
-_component_func = components.declare_component("st_keyup", path=str(build_dir))
+_component_func = components.declare_component("st_keyup_chat", path=str(build_dir))
 
 
-def st_keyup(
+def st_keyup_chat(
     label: str,
     value: str = "",
     max_chars: Optional[int] = None,
@@ -92,33 +92,33 @@ def main():
     from datetime import datetime
 
     st.write("## Default keyup input")
-    value = st_keyup("Enter a value")
+    value = st_keyup_chat("Enter a value")
 
     st.write(value)
 
     "## Keyup input with hidden label"
-    value = st_keyup("You can't see this", label_visibility="hidden")
+    value = st_keyup_chat("You can't see this", label_visibility="hidden")
 
     "## Keyup input with collapsed label"
-    value = st_keyup("This either", label_visibility="collapsed")
+    value = st_keyup_chat("This either", label_visibility="collapsed")
 
     "## Keyup with max_chars 5"
-    value = st_keyup("Keyup with max chars", max_chars=5)
+    value = st_keyup_chat("Keyup with max chars", max_chars=5)
 
     "## Keyup input with password type"
-    value = st_keyup("Password", value="Hello World", type="password")
+    value = st_keyup_chat("Password", value="Hello World", type="password")
 
     "## Keyup input with disabled"
-    value = st_keyup("Disabled", value="Hello World", disabled=True)
+    value = st_keyup_chat("Disabled", value="Hello World", disabled=True)
 
     "## Keyup input with default value"
-    value = st_keyup("Default value", value="Hello World")
+    value = st_keyup_chat("Default value", value="Hello World")
 
     "## Keyup input with placeholder"
-    value = st_keyup("Has placeholder", placeholder="A placeholder")
+    value = st_keyup_chat("Has placeholder", placeholder="A placeholder")
 
     "## Keyup input with 500 millesecond debounce"
-    value = st_keyup("Enter a second value debounced", debounce=500)
+    value = st_keyup_chat("Enter a second value debounced", debounce=500)
 
     st.write(value)
 
@@ -129,14 +129,14 @@ def main():
         st.write("Value changed!", args, kwargs)
 
     "## Keyup input with on_change callback"
-    value = st_keyup("Has an on_change", on_change=on_change)
+    value = st_keyup_chat("Has an on_change", on_change=on_change)
 
     "## Keyup input with on_change callback and debounce"
-    value = st_keyup("On_change + debounce", on_change=on_change, debounce=1000)
+    value = st_keyup_chat("On_change + debounce", on_change=on_change, debounce=1000)
     st.write(value)
 
     "## Keyup input with args"
-    value = st_keyup(
+    value = st_keyup_chat(
         "Enter a fourth value...",
         on_change=on_change2,
         args=("Hello", "World"),
